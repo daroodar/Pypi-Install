@@ -25,7 +25,7 @@ pip install pypi-install
 ##### Configuration
 Configure all connection parameters here.
 ```python
-from pypi-install import pypi-install as PI
+from pypi_install import pypi_install as PI
 
 pypirc_username="my_pypi_username" # for e.g. "new_john"
 pypirc_password= "my_pypi_password" # for e.g. "john123"
