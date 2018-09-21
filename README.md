@@ -42,7 +42,7 @@ directory_of_python_files=["PATH/my_python_file_1.py","PATH/my_python_file_2.py"
 ##### Uploading the code! 
 Run Your function
 ```python
-PI.make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,name_of_project,directory_of_python_files,version_number,author_name_full,author_email,short_description,github_url,python_version,invoke_python_by_name='python',license_type="MIT License",operating_system="OS Independent") # There, your code is uploaded on pypi! It's that easy!
+PI.make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,name_of_project,directory_of_python_files,version_number,author_name_full,author_email,short_description,github_url,python_version) # There, your code is uploaded on pypi! It's that easy!
 ```
 
 ##### Checking your recently installed package
