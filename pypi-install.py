@@ -6,10 +6,12 @@ Created on Mon Sep 17 11:42:10 2018
 """
 import os
 import shutil
-from os.path import expanduser        
+from os.path import expanduser
 
 
-def make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,name_of_project,directory_of_python_files,version_number,author_name_full,author_email,short_description,github_url,python_version,invoke_python_by_name='python',license_type="MIT License",operating_system="OS Independent"):
+
+
+def make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,name_of_project,directory_of_python_files,version_number,author_name_full,author_email,short_description,github_url,python_version,path_readme_source="",invoke_python_by_name='python',license_type="MIT License",operating_system="OS Independent"):
     '''
     pypirc_username: string; username of the account you created at pypi
     pypirc_password: string; username of the account you created at pypi
@@ -40,7 +42,7 @@ def make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,na
     
     change_dir(path_first_directory)
     create_init_file(path_second_directory,name_of_project)
-    create_readme_with_default_text(path_first_directory)
+    create_readme(path_first_directory,path_readme_source)
     create_setup_py(path_first_directory,name_of_project,version_number,author_name_full,author_email,short_description,github_url,python_version,license_type,operating_system)
     create_license_file(path_first_directory,author_name_full,license_type)
     upload_on_pypi(pypirc_username,pypirc_password,path_first_directory,invoke_python_by_name)
@@ -73,13 +75,17 @@ setuptools.setup(\n\
 )')    
     f.close()
     
-def create_readme_with_default_text(path):
-    f= open(path+'README.md',"w+")
-    f.write("# Example Package \n\
-This is a simple example package. You can use\n\
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)\n\
-to write your content.")
-    f.close()
+def create_readme(path_readme_destination,path_readme_source=""):
+    if(path_readme_source==""):
+        f= open(path_readme_destination+'README.md',"w+")
+        f.write("# Example Package \n\
+    This is a simple example package. You can use\n\
+    [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)\n\
+    to write your content.")
+        f.close()
+    else:
+        shutil.copy2(path_readme_source,path_readme_destination)
+        
     
 def create_license_file(path,author_name_full,license_type):
     f= open(path+'LICENSE',"w+")
@@ -137,6 +143,7 @@ repository: https://upload.pypi.org/legacy/ \n\
 username = "+pypi_username+" \n\
 password = "+pypi_password+"")
 
+# run_this_file('daroodar')
 
 
     
