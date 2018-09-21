@@ -26,6 +26,7 @@ pip install pypi-install
 Configure all connection parameters here.
 ```python
 from pypi-install import pypi-install as PI
+
 pypirc_username="my_pypi_username" # for e.g. "new_john"
 pypirc_password= "my_pypi_password" # for e.g. "john123"
 directory_of_new_folder = "path_new_directory" # for e.g. "/home/USER/New_Folder"
@@ -41,7 +42,7 @@ directory_of_python_files=["PATH/my_python_file_1.py","PATH/my_python_file_2.py"
 ##### Uploading the code! 
 Run Your function
 ```python
-make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,name_of_project,directory_of_python_files,version_number,author_name_full,author_email,short_description,github_url,python_version,invoke_python_by_name='python',license_type="MIT License",operating_system="OS Independent") # There, your code is uploaded on pypi! It's that easy!
+PI.make_pypi_folders(pypirc_username,pypirc_password,directory_of_new_folder,name_of_project,directory_of_python_files,version_number,author_name_full,author_email,short_description,github_url,python_version,invoke_python_by_name='python',license_type="MIT License",operating_system="OS Independent") # There, your code is uploaded on pypi! It's that easy!
 ```
 
 ##### Checking your recently installed package
@@ -49,7 +50,7 @@ To check your package, run this in terminal:
 ```
 pip install your_package_name
 ```
-It should be installed! 
+It should be installed now! 
 
 
   
